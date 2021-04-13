@@ -2,13 +2,22 @@ extends ../layout
 
 block content
 
-  h1.py-2= pageName
+  h1.py-4= pageName
 
   .col-md-2.p-2
     .card
       .card-header.text-center Profil
       .card-body
-        img(src="/images/avatar.png", alt="alt", height="128")
+        figure
+          img(src="/images/avatar.png", alt="alt", height="128")
+          figcaption.pt-2 Rôle : Admin
+            br
+            if counter <= 1
+              div Nombre de Tweet: &nbsp;
+                span=counter
+            else if counter > 1
+              div Tweets: &nbsp;
+                span.badge.rounded-pill.bg-primary=counter
 
   .col-md-8.p-2
     each doc in docs

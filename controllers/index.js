@@ -11,18 +11,27 @@ const getIndex = (req, res) => {
 
 const getTweetList = (req, res) => {
   const pageName = "LISTE DES TWEETS"
-  Tweet.find({}).exec()
-        .then(docs => {
-          res.status(200).render("pages/tweet-list", {
-            pageName,
-            docs
+
+  Tweet.countDocuments().then(counter => {
+
+    Tweet.find({}).exec()
+          .then(docs => {
+            res.status(200).render("pages/tweet-list", {
+              pageName,
+              docs,
+              counter
+            })
           })
-        })
-        .catch(err => {
-          console.log(`
-            \n\tUne erreur à été provoqué... : ${err}
-          `)
-        })
+          .catch(err => {
+            console.log(`
+              \n\tUne erreur à été provoqué... : ${err}
+            `)
+          })
+
+  }).catch(err => {
+    console.log("Erreur de syntaxe")
+  })
+
 }
 
 // Récupération de la page d'ajout d'un tweet
