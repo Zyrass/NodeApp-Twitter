@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+
+  h1.py-2= pageName
+
+  .col-md-2.p-2
+    .card
+      .card-header.text-center Profil
+      .card-body
+        img(src="/images/avatar.png", alt="alt", height="128")
+
+  .col-md-8.p-2
+    each doc in docs
+      .card.mb-2
+        .card-body= doc.message

@@ -1,0 +1,37 @@
+
+main {
+  background-color: mediumslateblue;
+  min-height: calc(100vh - 56px);
+  padding: 25px;
+}
+
+main h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 0px 0px 5px #333;
+  color: #f1f1f1;
+}
+
+main .card-body {
+  border-radius: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-body section {
+  width: 100%;
+}
+.card-body section textarea {
+  resize : none;
+  padding: 15px;
+}
+
+footer {
+  height: 56px;
+  line-height: 56px;
+  background-color: #333;
+  color: #f1f1f1;
+  text-align: center;
+}

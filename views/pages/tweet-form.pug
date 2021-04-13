@@ -1,0 +1,28 @@
+extends ../layout
+block script 
+  script(src="/javascript/script.js" defer) 
+
+block content
+
+  h1.py-4= pageName
+
+  .col-md-8
+    .card.w-100.p-5.bg-light
+      .card-body
+        section 
+          form(action="/tweet/new/traitement", method="post") 
+            .form-group 
+              label.d-flex.pb-2(for="form-label") Votre message ci-dessous
+                span.ms-auto(id="counter") 0/256
+              
+              textarea(
+                id="tweetContent"
+                name="tweetContent" 
+                class="form-control"
+                rows="5"
+              )
+
+            button.btn.btn-outline-primary.d-block.mt-3.ms-auto(type='submit' id="btnSubmit") Envoyer votre message
+          
+          if errors
+            .alert.alert-danger.mt-3= errors
