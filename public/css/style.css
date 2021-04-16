@@ -1,6 +1,6 @@
 
 main {
-  background-color: mediumslateblue;
+  background-color: indigo;
   min-height: calc(100vh - 56px);
   padding: 25px;
 }
@@ -16,8 +16,9 @@ main h1 {
 main .card-body {
   border-radius: 0px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  letter-spacing: 1.5px;
 }
 
 .card-body section {

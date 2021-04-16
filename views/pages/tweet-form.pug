@@ -22,7 +22,11 @@ block content
                 rows="5"
               )
 
-            button.btn.btn-outline-primary.d-block.mt-3.ms-auto(type='submit' id="btnSubmit") Envoyer votre message
+              div.valid-feedback Tout semble OK!
+              div.invalid-feedback Entre 20 et 256 caractères SVP.
+
+            button.btn.btn-outline-primary.d-block.mt-3.ms-auto(type='submit' id="btnSubmit" disabled) Envoyer votre message
           
           if errors
-            .alert.alert-danger.mt-3= errors
+            .alert.alert-danger.alert-dismissible.fade.show.mt-3= errors
+              button(type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close")

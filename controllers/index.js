@@ -1,7 +1,6 @@
 const Tweet = require("../models/Tweet.model")
 const Toastify = require('toastify-js')
 
-
 const getIndex = (req, res) => {
   const pageName = "PROJET N°1"
   res.status(200).render("index", {
@@ -14,7 +13,9 @@ const getTweetList = (req, res) => {
 
   Tweet.countDocuments().then(counter => {
 
-    Tweet.find({}).exec()
+    Tweet.find({})
+          .sort({ createdAt: -1 })
+          .exec()
           .then(docs => {
             res.status(200).render("pages/tweet-list", {
               pageName,
@@ -59,7 +60,11 @@ const postTweetNew = (req, res) => {
             console.log(`
               \n\t${errors}
             `.bgRed.white.bold)
-            res.status(400).render("pages/tweet-form", { errors })
+            const pageName = "UN TRUC À DIRE !?"
+            res.status(400).render("pages/tweet-form", { 
+              pageName,
+              errors
+            })
           })
 }
 
